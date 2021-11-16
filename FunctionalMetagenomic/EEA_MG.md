@@ -97,7 +97,7 @@ mv Contigs/*faa Annotations
 mv Contigs/*ffn Annotations
 mv Contigs/*faa Annotations
 
-# The --dbmem parameter should be removed in the memory of the computer used is a little low but its addition strongly reduce the run time
+# The --dbmem parameter should be removed if the memory of the computer used is a little low but its addition strongly reduce the run time
 
 for i in Annotations/*faa
 do
@@ -118,7 +118,7 @@ The enzymes and genes of interest are :
 
 ### Installation
 
-`mamba create -n EEAdiverse -c bioconda -c conda-forge r-tidyverse samtools coverm cd-hit`
+`mamba create -n EEAdiverse -c bioconda -c conda-forge r-tidyverse samtools coverm cd-hit kraken2`
 
 ### Script
 
@@ -150,5 +150,14 @@ ls ../Trim > listreads.txt
 
 # Calculate coverage of each of the genes of interest
 
-coverm contig -r EEA_genes_cd.ffn -m trimmed_mean -o EEA_genes_cd_cov.txt -t 28 -c `< t.txt`
+coverm contig -r EEA_genes_cd.ffn -m trimmed_mean -o EEA_genes_cd_cov.txt -t 28 -c `< listreads.txt`
 ```
+
+## Taxonomy and Final calculations
+
+### Script
+
+conda activate EEAdiverse
+
+kraken2 --threads 28 --db maxikraken2_1903_140GB/ --use-names --confidence 0.5  --output EEA_genes_krakenOut.txt --report EEA_genes_krakenReport.txt EEA_genes_cd.ffn
+
