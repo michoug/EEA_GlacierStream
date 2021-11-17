@@ -4,4 +4,4 @@ The goal of this github page is to host the code used in the paper by [Kohler](h
 
 To facilitate the comprehension, it is divided into two folders named respectively `FunctionalMetagenomic` and `Phylofactorization`.
 
-The phylofactorization script `Phylofactorization_16S_k_final` was initially made by Alex Washburne.
+The phylofactorization script `Phylofactorization_16S_k_final.r` was initially made by Alex Washburne.
