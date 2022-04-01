@@ -157,7 +157,8 @@ coverm contig -r EEA_genes_cd.ffn -m trimmed_mean -o EEA_genes_cd_cov.txt -t 28 
 
 ### Script
 
+``` bash
 conda activate EEAdiverse
 
 kraken2 --threads 28 --db maxikraken2_1903_140GB/ --use-names --confidence 0.5  --output EEA_genes_krakenOut.txt --report EEA_genes_krakenReport.txt EEA_genes_cd.ffn
-
+```
